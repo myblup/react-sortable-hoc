@@ -188,7 +188,7 @@ export default function sortableContainer(WrappedComponent, config = {withRef: f
         }
 
         if (!distance) {
-          if (this.props.pressDelay === 0) {
+          if (!isTouchEvent(event) || this.props.pressDelay === 0) {
             this.handlePress(event);
           } else {
             this.pressTimer = setTimeout(
